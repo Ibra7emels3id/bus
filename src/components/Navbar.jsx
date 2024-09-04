@@ -1,40 +1,58 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import PhoneIcon from '@mui/icons-material/Phone';
 import BrightnessHighIcon from '@mui/icons-material/BrightnessHigh';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { Avatar } from '@mui/material';
+import { ContextData } from '../context/ContextApi';
 
 // Import Image
 import Logo from '../assets/logo.png'
+import axios from 'axios';
+
 export default function Navbar() {
+    const { UserData } = useContext(ContextData)
+
+
+    // Handle LogOut   
+    const handleLogOut = () => {
+        axios.post('http://localhost:3000/api/user/logout', {
+            method: 'POST',
+            credentials: 'include'
+        })
+
+        localStorage.removeItem('token')
+        window.location.href = '/login'
+    }
+
     return (
         <div className=' bg-neutral-100 h-[65px] m-auto  justify-between flex items-center '>
             {/* Logo section */}
-            <div className="flex w-[90%] m-auto justify-between items-center  "><div className="logo flex items-center">
-                <Link to={"/"} className=''>
-                    <img src={Logo} alt="logo" className="w-28 h-auto object-contain" />
-                </Link>
-                <ul className="flex ml-20  items-center justify-center gap-6">
-                    <li>
-                        <Link to={'/'} className='text-neutral-600 font-medium ' >Home</Link>
-                    </li>
-                    <li>
-                        <Link to={'/about'} className='text-neutral-600 font-medium ' >About Us</Link>
-                    </li>
-                    <li>
-                        <Link className='text-neutral-600 font-medium ' >Bus</Link>
-                    </li>
-                    <li>
-                        <Link className='text-neutral-600 font-medium ' >Services</Link>
-                    </li>
-                </ul>
-            </div>
+            <div className="flex w-[90%] m-auto justify-between items-center  ">
+                <div className="logo flex items-center">
+                    <Link to={"/"} className=''>
+                        <img src={Logo} alt="logo" className="w-28 h-auto object-contain" />
+                    </Link>
+                    <ul className="hidden lg:flex ml-20 items-center justify-center gap-6">
+                        <li>
+                            <Link to={'/'} className='text-neutral-600 font-medium ' >Home</Link>
+                        </li>
+                        <li>
+                            <Link to={'/about'} className='text-neutral-600 font-medium ' >About Us</Link>
+                        </li>
+                        <li>
+                            <Link className='text-neutral-600 font-medium ' >Bus</Link>
+                        </li>
+                        <li>
+                            <Link className='text-neutral-600 font-medium ' >Services</Link>
+                        </li>
+                    </ul>
+                </div>
 
                 {/* Navigation links */}
                 <div className='flex items-center justify-center'>
-
-
-                    <div className="flex md:items-center items-start gap-x-5 gap-y-2 flex-wrap md:flex-row flex-col text-base font-medium text-neutral-800">
-                        <div className="relative bg-violet-600 rounded-md px-8 py-2 w-fit cursor-pointer">
+                    <div className="flex items-center justify-center">
+                        <div className="relative hidden md:block bg-violet-600 rounded-md px-8 py-2 w-fit cursor-pointer">
                             <div className="absolute top-[50%] -left-6 translate-y-[-50%] w-9 h-9 rounded-full bg-violet-600 border-4 border-neutral-100  flex items-center justify-center">
                                 <PhoneIcon sx={{ color: 'white', fontSize: '20px' }} />
                             </div>
@@ -45,12 +63,31 @@ export default function Navbar() {
                                 <p className="text-xs font-normal text-neutral-50 tracking-wide">+91 1234567890</p>
                             </div>
                         </div>
-                        <div className="them rounded-full bg-white p-3 ml-3 cursor-pointer ">
+                        <div className="them rounded-full bg-white p-3 mx-3  cursor-pointer ">
                             <BrightnessHighIcon sx={{ color: 'black', fontSize: '25px' }} />
                         </div>
+                        <label className="flex lg:hidden  flex-col gap-2 w-8">
+                            <input className="peer hidden" type="checkbox" />
+                            <div
+                                className="rounded-2xl h-[3px] w-1/2 bg-black duration-500 peer-checked:rotate-[225deg] origin-right peer-checked:-translate-x-[12px] peer-checked:-translate-y-[1px]"
+                            ></div>
+                            <div
+                                className="rounded-2xl h-[3px] w-full bg-black duration-500 peer-checked:-rotate-45"
+                            ></div>
+                            <div
+                                className="rounded-2xl h-[3px] w-1/2 bg-black duration-500 place-self-end peer-checked:rotate-[225deg] origin-left peer-checked:translate-x-[12px] peer-checked:translate-y-[1px]"
+                            ></div>
+                        </label>
+                        {
+                            UserData.token ? <>
+                                <Link to={'/portfolio'}><Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/1.jpg" /></Link>
+                                <button onClick={handleLogOut} className='text-neutral-600 mx-4 bg-[#fff] rounded-full p-3  font-medium'><LogoutIcon className=''/></button>
+                            </> :
+                                <Link to={"/login"} className='text-neutral-600 font-medium'>Login</Link>
+                        }
                     </div>
-                </div></div>
-
+                </div>
+            </div>
         </div>
     )
 }
