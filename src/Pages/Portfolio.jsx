@@ -6,15 +6,17 @@ import Navbar from '../components/Navbar';
 
 const Portfolio = () => {
     const { UserData, setUserData } = useContext(ContextData)
-    const [loading, setLoading] = useState(true)
     const [ImageUrl, setImageUrl] = useState(null)
 
     const Navigate = useNavigate()
 
+    console.log(UserData);
+
+
     // Handle navigation Page Events
-    if (!UserData?.token) {
-        Navigate('/login')
-    } else {
+    if (UserData?.role === 'admin') {
+        Navigate('/admin')
+    } else if (UserData?.role === 'user') {
         Navigate('/portfolio')
     }
 
@@ -27,7 +29,7 @@ const Portfolio = () => {
         localStorage.removeItem('token')
         window.location.href = '/login'
         setUserData(null)
-        
+
     }
 
 

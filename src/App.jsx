@@ -8,11 +8,18 @@ import Portfolio from './Pages/Portfolio';
 import { ContextData } from './context/ContextApi';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import AddCategory from './admin/pages/AddCategory';
+import Admin from './admin/Admin';
+import Addproduct from './admin/pages/Addproduct';
+import Category from './admin/pages/Category';
+import UpdateCategory from './admin/pages/UpdateCategory';
+import Products from './admin/pages/Products';
+import ProductUpdate from './admin/pages/ProductUpdate';
+
 
 
 function App() {
     const [UserData, setUserData] = useState({})
-
     const Token = localStorage.getItem('token')
 
     // Fetch Data Api
@@ -28,8 +35,15 @@ function App() {
                 })
                 const data = await response.json();
                 console.log(data);
-                setUserData(data);
-                Navigate('/portfolio')
+                setUserData(data)
+                
+                if(data.role == 'admin'){
+                    Navigate('/admin')
+                }else if(data.role == 'user'){
+                    Navigate('/')
+                }
+
+                
             } catch (error) {
                 Navigate('/login')
                 console.error('Error fetching user data:', error);
@@ -43,6 +57,7 @@ function App() {
         localStorage.removeItem('token');
     }, 60 * 60 * 1000)
 
+
     return (
         <>
             <ToastContainer />
@@ -50,9 +65,16 @@ function App() {
                 <Router>
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route path="/login" element={UserData.token ? <Navigate to='/' /> : <Login />} />
+                        <Route path="/login" element={<Login />} />
                         <Route path="/register" element={UserData.token ? <Navigate to='/' /> : <Register />} />
                         <Route path="/portfolio" element={<Portfolio />} />
+                        <Route path="/admin" element={<Admin />}/>
+                        <Route path="/admin/addproduct" element={<Addproduct />} />
+                        <Route path="/admin/addcategory" element={<AddCategory />} />
+                        <Route path="/admin/category" element={<Category />} />
+                        <Route path="/admin/category/update/:id" element={<UpdateCategory />} />
+                        <Route path="/admin/products" element={<Products />} />
+                        <Route path="/admin/product/update/:id" element={<ProductUpdate />} />
                     </Routes>
                 </Router>
             </ContextData.Provider>

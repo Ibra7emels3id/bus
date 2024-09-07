@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ContextData } from '../context/ContextApi'
+import { useNavigate } from 'react-router-dom'
 
 export default function FormAvilabuil() {
+    const { UserData } = useContext(ContextData)
+    const navigate = useNavigate()
+    const handleNaveiaget = ()=>{
+        navigate('/login')
+    }
     return (
         <>
             <div className="flex flex-col mt-20 ">
@@ -39,7 +46,10 @@ export default function FormAvilabuil() {
                         <input className='w-full h-12 rounded-lg outline-none cursor-pointer px-2 bg-[#ebebeb]' type="text" id="total" name="total" />
                     </div>
                     <div className="submit w-full">
-                        <input className='bg-[#6d28d9] mt-6 rounded-lg h-12 text-white w-full' type="submit" value="Submit" />
+                        {
+                            UserData.token ? <input className='bg-[#6d28d9] mt-6 rounded-lg h-12 text-white w-full' type="submit" value="Submit" /> :
+                                <button onClick={handleNaveiaget} className='w-full h-12 bg-[#2196F3] mt-6 text-white rounded-lg hover:bg-[#1e88e5]' type="submit">Login Please</button>
+                        }
                     </div>
                 </form>
             </div>

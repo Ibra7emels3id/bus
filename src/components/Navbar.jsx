@@ -1,29 +1,30 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import PhoneIcon from '@mui/icons-material/Phone';
 import BrightnessHighIcon from '@mui/icons-material/BrightnessHigh';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { Avatar } from '@mui/material';
 import { ContextData } from '../context/ContextApi';
+import axios from 'axios';
+
 
 // Import Image
 import Logo from '../assets/logo.png'
-import axios from 'axios';
+
 
 export default function Navbar() {
     const { UserData } = useContext(ContextData)
 
-
-    // Handle LogOut   
+    // Handle LogOut 
     const handleLogOut = () => {
         axios.post('http://localhost:3000/api/user/logout', {
             method: 'POST',
             credentials: 'include'
         })
-
         localStorage.removeItem('token')
         window.location.href = '/login'
     }
+
 
     return (
         <div className=' bg-neutral-100 h-[65px] m-auto  justify-between flex items-center '>
@@ -66,7 +67,7 @@ export default function Navbar() {
                         <div className="them rounded-full bg-white p-3 mx-3  cursor-pointer ">
                             <BrightnessHighIcon sx={{ color: 'black', fontSize: '25px' }} />
                         </div>
-                        <label className="flex lg:hidden  flex-col gap-2 w-8">
+                        <label className="flex lg:hidden  mx-4 flex-col gap-2 w-8">
                             <input className="peer hidden" type="checkbox" />
                             <div
                                 className="rounded-2xl h-[3px] w-1/2 bg-black duration-500 peer-checked:rotate-[225deg] origin-right peer-checked:-translate-x-[12px] peer-checked:-translate-y-[1px]"
@@ -78,13 +79,27 @@ export default function Navbar() {
                                 className="rounded-2xl h-[3px] w-1/2 bg-black duration-500 place-self-end peer-checked:rotate-[225deg] origin-left peer-checked:translate-x-[12px] peer-checked:translate-y-[1px]"
                             ></div>
                         </label>
-                        {
-                            UserData.token ? <>
-                                <Link to={'/portfolio'}><Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/1.jpg" /></Link>
-                                <button onClick={handleLogOut} className='text-neutral-600 mx-4 bg-[#fff] rounded-full p-3  font-medium'><LogoutIcon className=''/></button>
-                            </> :
-                                <Link to={"/login"} className='text-neutral-600 font-medium'>Login</Link>
-                        }
+                        {UserData.role === 'admin' && (
+                            <Link className='mx-4' to={'/admin'}>
+                                Admin
+                            </Link>
+                        )}
+                        {UserData && (
+                            <div onClick={handleLogOut} className='mx-4 flex  items-center justify-center'>
+                                {UserData.role === 'user' ?
+                                    <>
+                                        <Avatar
+                                            sx={{ width: 30, height: 30, marginRight: '30px', borderRadius: '50%' }}
+                                            alt={UserData.name}
+                                            src={UserData?.image}
+                                            className=' cursor-pointer'
+                                        />
+                                        <LogoutIcon className=' cursor-pointer' sx={{ color: 'black', fontSize: '25px' }} />
+                                    </> :
+                                    <Link to={'/login'}>Login</Link>
+                                }
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

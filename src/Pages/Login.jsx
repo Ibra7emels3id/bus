@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import IconBus from '../assets/logo.png'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios'
+import { ContextData } from '../context/ContextApi';
+import { toast } from 'react-toastify';
 const Login = () => {
+    const { UserData, setUserData } = useContext(ContextData)
     const Navigate = useNavigate()
     // SetData
     const [Data, setData] = useState({
@@ -26,26 +29,35 @@ const Login = () => {
                 .then((res) => {
                     localStorage.setItem('token', res.data.token);
                     console.log(res);
-                    if (res.status === 200) {
-                        return  window.location.href = '/';
-                    } else {
-                        Navigate('/login');
-                        console.error('Failed to login');
+                    if (res.data.role === 'admin') {
+                        window.location.href = '/admin' ;
+                        return;
+                    } else if (res.data.role === 'user'){
+                        window.location.href = '/';
+                        return;
                     }
+                    toast.success('Login Success')
+                    return
                 }).catch(() => {
                     Navigate('/login');
                     console.error('Failed to login');
+                    toast.error('please Check Email and Password');
                 })
-
-
         } catch (error) {
             // Log and handle errors
             console.error('Error:', error);
         }
     };
 
-
-
+    if (UserData.role === 'admin') {
+        if (UserData.token) {
+            Navigate('/admin');
+        }
+    } else if (UserData.role === 'user') {
+        if (UserData.token) {
+            Navigate('/');
+        }
+    }
 
 
     return (
@@ -53,11 +65,13 @@ const Login = () => {
             <div className="flex  h-screen min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
                 <div className="bg-[#f5f5f5] w-[40%] m-auto p-10 rounded-lg">
                     <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                        <img
-                            alt="Your Company"
-                            src={IconBus}
-                            className="mx-auto h-10 w-auto"
-                        />
+                        <Link to={'/'}>
+                            <img
+                                alt="Your Company"
+                                src={IconBus}
+                                className="mx-auto h-10 w-auto"
+                            />
+                        </Link>
                         <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                             Sign in to your account
                         </h2>
