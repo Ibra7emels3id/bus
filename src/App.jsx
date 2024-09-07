@@ -28,7 +28,7 @@ function App() {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/user', {
+                const response = await fetch(`${import.meta.env.VITE_SOME_URL}/api/user`, {
                     method: 'GET',
                     headers: {
                         'Authorization': Token ? `Bearer ${Token}` : '',

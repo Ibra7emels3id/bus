@@ -25,7 +25,7 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            axios.post('http://localhost:3000/api/login', Data)
+            axios.post(`${import.meta.env.VITE_SOME_URL}/api/login`, Data)
                 .then((res) => {
                     localStorage.setItem('token', res.data.token);
                     console.log(res);

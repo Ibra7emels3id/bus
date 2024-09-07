@@ -22,7 +22,7 @@ const Register = () => {
     const HandleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await fetch('http://localhost:3000/api/register', {
+            const response = await fetch(`${import.meta.env.VITE_SOME_URL}/api/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

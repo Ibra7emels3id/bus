@@ -21,7 +21,7 @@ const Portfolio = () => {
     }
 
     const handleLogOut = () => {
-        axios.post('http://localhost:3000/api/user/logout', {
+        axios.post(`${import.meta.env.VITE_SOME_URL}/api/user/logout`, {
             method: 'POST',
             credentials: 'include'
         })
