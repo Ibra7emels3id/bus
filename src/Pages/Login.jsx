@@ -63,7 +63,7 @@ const Login = () => {
     return (
         <>
             <div className="flex  h-screen min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-                <div className="bg-[#f5f5f5] w-[40%] m-auto p-10 rounded-lg">
+                <div className="bg-[#f5f5f5] md:w-[40%] m-auto p-10 rounded-lg">
                     <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                         <Link to={'/'}>
                             <img
