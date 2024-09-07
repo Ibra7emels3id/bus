@@ -15,6 +15,8 @@ import Category from './admin/pages/Category';
 import UpdateCategory from './admin/pages/UpdateCategory';
 import Products from './admin/pages/Products';
 import ProductUpdate from './admin/pages/ProductUpdate';
+import ProductDetails from './admin/pages/ProductDetails';
+import CategoryDetails from './admin/pages/CategoryDetails';
 
 
 
@@ -75,6 +77,8 @@ function App() {
                         <Route path="/admin/category/update/:id" element={<UpdateCategory />} />
                         <Route path="/admin/products" element={<Products />} />
                         <Route path="/admin/product/update/:id" element={<ProductUpdate />} />
+                        <Route path="/admin/product/details/:id" element={<ProductDetails />} />
+                        <Route path="/admin/category/details/:id" element={<CategoryDetails />} />
                     </Routes>
                 </Router>
             </ContextData.Provider>

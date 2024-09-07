@@ -7,7 +7,7 @@ import Logo from "../assets/logo.png";
 const Footer = () => {
     return (
         <footer className="w-full lg:px-28 md:px-16 sm:px-7 px-4 py-8 bg-[#f5f5f5]">
-            <div className="grid grid-cols-5 gap-5">
+            <div className="grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 gap-y-10 ">
                 <div className="space-y-5 col-span-2">
                     <Link to="/" className='text-xl text-neutral-800 dark:text-neutral-200 font-bold'>
                         <img src={Logo} alt="logo" className="w-44 h-auto object-contain" />

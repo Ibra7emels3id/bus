@@ -5,11 +5,11 @@ export default function Offers() {
 
     return (
         <>
-            <div className="category p-6 w-[85%] mt-24 mb-24 mx-auto">
+            <div className="category p-6 w-[95%] md:w-[85%] mt-24 mb-24 mx-auto">
                 <div className="flex items-center justify-between">
                     <h1 className="text-3xl text-[#4f4f4f] font-bold text-start px-5 ">Special Offers</h1>
                 </div>
-                <div className="grid grid-cols-2 p-3 mt-8 gap-10">
+                <div className="grid grid-cols-1 lg:grid-cols-2 p-3 mt-8 gap-10">
                     <div className="box bg-[#f5f5f5] p-5 flex items-center ">
                         <div className="image">
                             <img className='w-60' src={offer} alt="" />

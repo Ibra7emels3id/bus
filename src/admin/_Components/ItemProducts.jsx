@@ -30,7 +30,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 
-const ItemProducts = ({title , date , description , image ,time, id , category , onDelete }) => {
+const ItemProducts = ({title , date , description ,quantity, image ,time, id , category , onDelete }) => {
         const Navigate = useNavigate()
     
     return (
@@ -39,10 +39,10 @@ const ItemProducts = ({title , date , description , image ,time, id , category ,
                 <StyledTableCell sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}><img className='w-[150px] flex items-center justify-center rounded-xl' src={`http://localhost:3000/${image}`} alt={title} /></StyledTableCell>
                 <StyledTableCell align="center">{title}</StyledTableCell>
                 <StyledTableCell align="center">{description.slice(0 , 20)}...</StyledTableCell>
-                <StyledTableCell align="center">{description.slice(0 , 20)}...</StyledTableCell>
+                <StyledTableCell align="center">{quantity}</StyledTableCell>
                 <StyledTableCell align="center">{date}<br/>{time}</StyledTableCell>
                 <StyledTableCell align="center" ><span onClick={() => {
-                    // HandleViewChange(id)
+                    Navigate(`/admin/product/details/${id}`)
                 }} className='bg-[#dedede] p-4 rounded-xl'><VisibilityIcon sx={{ fontSize: '30px' }} className=' cursor-pointer ' /></span></StyledTableCell>
                 <StyledTableCell align="center"><span onClick={() => {
                     Navigate(`/admin/product/update/${id}`)

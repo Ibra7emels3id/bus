@@ -5,13 +5,13 @@ import { useNavigate } from 'react-router-dom'
 export default function FormAvilabuil() {
     const { UserData } = useContext(ContextData)
     const navigate = useNavigate()
-    const handleNaveiaget = ()=>{
+    const handleNaveiaget = () => {
         navigate('/login')
     }
     return (
         <>
             <div className="flex flex-col mt-20 ">
-                <form className='grid grid-cols-3 gap-10 bg-[#f5f5f5] my-10 p-10  w-[80%] m-auto' action="" method="post">
+                <form className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 bg-[#f5f5f5] my-10 p-10 w-[95%]  md:w-[80%] m-auto' action="" method="post">
                     <div className="form w-full">
                         <label htmlFor="form">Form</label>
                         <select className='w-full h-12 rounded-lg outline-none cursor-pointer px-2 bg-[#ebebeb]' name="form" id="form">

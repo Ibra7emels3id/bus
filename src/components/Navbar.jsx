@@ -80,13 +80,16 @@ export default function Navbar() {
                             ></div>
                         </label>
                         {UserData.role === 'admin' && (
-                            <Link className='mx-4' to={'/admin'}>
-                                Admin
-                            </Link>
+                            <>
+                                <Link className='mx-4' to={'/admin'}>
+                                    Admin
+                                </Link>
+                                <LogoutIcon onClick={handleLogOut} className=' cursor-pointer mx-4' sx={{ color: 'black', fontSize: '25px' }} />
+                            </>
                         )}
                         {UserData && (
                             <div onClick={handleLogOut} className='mx-4 flex  items-center justify-center'>
-                                {UserData.role === 'user' ?
+                                {UserData.role === 'user' &&
                                     <>
                                         <Avatar
                                             sx={{ width: 30, height: 30, marginRight: '30px', borderRadius: '50%' }}
@@ -95,11 +98,11 @@ export default function Navbar() {
                                             className=' cursor-pointer'
                                         />
                                         <LogoutIcon className=' cursor-pointer' sx={{ color: 'black', fontSize: '25px' }} />
-                                    </> :
-                                    <Link to={'/login'}>Login</Link>
+                                    </>
                                 }
                             </div>
                         )}
+                        {!UserData.role && <Link to={'/login'}>Login</Link>}
                     </div>
                 </div>
             </div>
