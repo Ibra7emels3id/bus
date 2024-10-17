@@ -58,10 +58,8 @@ export default function Category() {
     }
 
     const AllCategory = category?.map((it) => {
-        return (
-            <>
+        return ( 
                 <ItemCategory key={it._id} onDelete={HandleDeleteChange} image={it.image} title={it.title} id={it._id} time={it.time} date={it.date} />
-            </>
         )
     })
 

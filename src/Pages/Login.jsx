@@ -4,8 +4,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import { ContextData } from '../context/ContextApi';
 import { toast } from 'react-toastify';
+import Button from '@mui/joy/Button';
+
+
+
+
 const Login = () => {
     const { UserData, setUserData } = useContext(ContextData)
+    const [Loding, setLoding] = useState(false)
     const Navigate = useNavigate()
     // SetData
     const [Data, setData] = useState({
@@ -21,18 +27,19 @@ const Login = () => {
 
     // Fetch data Api
     axios.defaults.withCredentials = true
+
     const HandleSubmit = async (e) => {
         e.preventDefault();
-
         try {
+            setLoding(true)
             axios.post(`${import.meta.env.VITE_SOME_URL}/api/login`, Data)
                 .then((res) => {
                     localStorage.setItem('token', res.data.token);
                     console.log(res);
                     if (res.data.role === 'admin') {
-                        window.location.href = '/admin' ;
+                        window.location.href = '/admin';
                         return;
-                    } else if (res.data.role === 'user'){
+                    } else if (res.data.role === 'user') {
                         window.location.href = '/';
                         return;
                     }
@@ -42,12 +49,17 @@ const Login = () => {
                     Navigate('/login');
                     console.error('Failed to login');
                     toast.error('please Check Email and Password');
-                })
+                }).finally(() => {
+                    setLoding(false);
+                });
+
         } catch (error) {
             // Log and handle errors
             console.error('Error:', error);
         }
     };
+
+    console.log(Loding);
 
     if (UserData.role === 'admin') {
         if (UserData.token) {
@@ -121,13 +133,13 @@ const Login = () => {
                             </div>
 
                             <div>
-                                <button
+                                {Loding ? <Button className='flex w-full h-12 bg-[#7c3aed] rounded-md' loading>Loading</Button> : <button
                                     onClick={HandleSubmit}
                                     type="submit"
                                     className="flex  w-full justify-center items-center  h-12 outline-none  rounded-md bg-[#7c3aed] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >
                                     Sign in
-                                </button>
+                                </button>}
                             </div>
                         </form>
 

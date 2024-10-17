@@ -49,9 +49,7 @@ const Products = () => {
     // Get products Api
     const AllProducts = products?.map((it) => {
         return (
-            <>
-                <ItemProducts onDelete={deleteProduct} id={it._id} quantity={it.quantity} key={it._id} title={it.title} description={it.description} date={it.date} time={it.time} image={it.image} />
-            </>
+            <ItemProducts onDelete={deleteProduct} id={it._id} quantity={it.quantity} key={it._id} title={it.title} description={it.description} date={it.date} time={it.time} image={it.image} />
         )
     })
 

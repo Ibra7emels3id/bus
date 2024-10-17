@@ -5,6 +5,7 @@ import FormAvilabuil from '../components/FormAvilabuil'
 import Category from '../components/Category'
 import Offers from '../components/Offers'
 import Footer from '../components/Footer'
+import TeamWorks from '../components/TeamWorks'
 
 function Home() {
     return (
@@ -14,6 +15,7 @@ function Home() {
             <FormAvilabuil />
             <Category />
             <Offers />
+            <TeamWorks />
             <Footer/>
         </>
     )

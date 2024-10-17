@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import PhoneIcon from '@mui/icons-material/Phone';
 import BrightnessHighIcon from '@mui/icons-material/BrightnessHigh';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -14,6 +14,7 @@ import Logo from '../assets/logo.png'
 
 export default function Navbar() {
     const { UserData } = useContext(ContextData)
+    const Navigate = useNavigate()
 
     // Handle LogOut 
     const handleLogOut = () => {
@@ -88,16 +89,19 @@ export default function Navbar() {
                             </>
                         )}
                         {UserData && (
-                            <div onClick={handleLogOut} className='mx-4 flex  items-center justify-center'>
+                            <div  className='mx-4 flex  items-center justify-center'>
                                 {UserData.role === 'user' &&
                                     <>
                                         <Avatar
                                             sx={{ width: 30, height: 30, marginRight: '30px', borderRadius: '50%' }}
-                                            alt={UserData.name}
-                                            src={UserData?.image}
+                                            alt={UserData?.user?.name}
+                                            src={`${import.meta.env.VITE_SOME_URL}/${UserData?.user?.image}`}
                                             className=' cursor-pointer'
+                                            onClick={()=>{
+                                                Navigate('/portfolio')
+                                            }}
                                         />
-                                        <LogoutIcon className=' cursor-pointer' sx={{ color: 'black', fontSize: '25px' }} />
+                                        <LogoutIcon onClick={handleLogOut} className=' cursor-pointer' sx={{ color: 'black', fontSize: '25px' }} />
                                     </>
                                 }
                             </div>

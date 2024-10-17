@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import IconBus from '../assets/logo.png'
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Button from '@mui/joy/Button';
 
 const Register = () => {
     const Navigate = useNavigate()
+    const [Loading , setLoding] = useState(false)
     // SetData
     const [Data, setData] = useState({
         name: '',
@@ -22,6 +24,7 @@ const Register = () => {
     const HandleSubmit = async (e) => {
         e.preventDefault()
         try {
+            setLoding(true)
             const response = await fetch(`${import.meta.env.VITE_SOME_URL}/api/register`, {
                 method: 'POST',
                 headers: {
@@ -35,6 +38,7 @@ const Register = () => {
             }
             toast.success('Registration Successfully')
             Navigate('/login')
+            setLoding(false)
         } catch (error) {
             console.error('Failed to register')
         }
@@ -47,9 +51,12 @@ const Register = () => {
                 <div className="bg-[#f5f5f5] md:w-[40%] m-auto p-10 rounded-lg">
                     <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                         <img
+                            onClick={() => {
+                                Navigate('/')
+                            }}
                             alt="Your Company"
                             src={IconBus}
-                            className="mx-auto h-10 w-auto"
+                            className="mx-auto h-10 w-auto cursor-pointer"
                         />
                         <h2 className="mt-4 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                             Sign in to your account
@@ -98,7 +105,7 @@ const Register = () => {
                                     <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                                         Password
                                     </label>
-                                    
+
                                 </div>
                                 <div className="mt-2">
                                     <input
@@ -115,13 +122,13 @@ const Register = () => {
                             </div>
 
                             <div>
-                                <button
+                            {Loading ? <Button className='flex w-full h-12 bg-[#7c3aed] rounded-md ' loading>Loading</Button> : <button
                                     onClick={HandleSubmit}
                                     type="submit"
                                     className="flex  w-full justify-center items-center  h-12 outline-none  rounded-md bg-[#7c3aed] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >
                                     Sign Up
-                                </button>
+                                </button>}
                             </div>
                         </form>
 
