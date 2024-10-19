@@ -99,7 +99,7 @@ export default function Navbar() {
                                     {UserData.role === 'user' &&
                                         <>
                                             <Avatar
-                                                sx={{ width: 30, margin: 'auto', height: 30, marginRight: '30px', borderRadius: '50%' }}
+                                                sx={{ width: 30, margin: 'auto', height: 30 , borderRadius: '50%' }}
                                                 alt={UserData?.user?.name}
                                                 src={`${import.meta.env.VITE_SOME_URL}/${UserData?.user?.image}`}
                                                 className=' cursor-pointer'
