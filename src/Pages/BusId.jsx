@@ -24,7 +24,7 @@ export default function BusId() {
     // Fetch product data by ID
     const fetchProduct = async () => {
         try {
-            const response = await axios.get(`http://localhost:3000/api/product/${id}`);
+            const response = await axios.get(`${import.meta.env.VITE_SOME_URL}/api/product/${id}`);
             const data = response.data;
             setProduct(data);
             // Initialize chairs' condition
@@ -123,7 +123,7 @@ export default function BusId() {
             // Update chair conditions after reservation
             await Promise.all(
                 selectedChairs.map(chair => {
-                    return axios.put(`http://localhost:3000/api/product/AddChair/update/${id}/chair/${chair.chairId}`, {
+                    return axios.put(`${import.meta.env.VITE_SOME_URL}/api/product/AddChair/update/${id}/chair/${chair.chairId}`, {
                         chair: 'reservation'
                     });
                 })
