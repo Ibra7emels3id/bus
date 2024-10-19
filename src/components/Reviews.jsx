@@ -77,7 +77,7 @@ export default function SliderComponent() {
                         }}
                     >
                         {reviews?.map((it) => (
-                            <SwiperSlide key={it.id} className="">
+                            <SwiperSlide key={it._id} className="">
                                 <blockquote className="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
                                     <div className="flex flex-col">
                                         <div className="flex items-center gap-0.5 text-green-500">

@@ -47,7 +47,7 @@ export default function Navbar() {
                         <li>
                             <Link to={'/'} className='text-neutral-600 font-medium ' >Home</Link>
                         </li>
-                        {UserData.role === 'admin' && (
+                        {UserData.role === 'user' && (
                             <>
                                 <li>
                                     <Link to={'/reservations'} className='text-neutral-600 font-medium ' >Reservations</Link>

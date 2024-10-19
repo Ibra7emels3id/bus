@@ -24,10 +24,8 @@ const Login = () => {
         setData({ ...Data, [e.target.name]: e.target.value })
     }
 
-
     // Fetch data Api
     axios.defaults.withCredentials = true
-
     const HandleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -59,7 +57,6 @@ const Login = () => {
         }
     };
 
-    console.log(Loding);
 
     if (UserData.role === 'admin') {
         if (UserData.token) {
