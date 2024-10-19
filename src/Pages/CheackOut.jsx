@@ -32,7 +32,7 @@ const CheckoutForm = () => {
 
     const fetchData = async () => {
         try {
-            const response = await fetch('http://localhost:3000/api/reservations');
+            const response = await fetch(`${import.meta.env.VITE_SOME_URL}/api/reservations`);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -61,7 +61,7 @@ const CheckoutForm = () => {
         setIsLoading(true);
 
         try {
-            const response = await fetch('http://localhost:3000/create-payment-intent', {
+            const response = await fetch(`${import.meta.env.VITE_SOME_URL}/create-payment-intent`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -133,7 +133,7 @@ const CheckoutForm = () => {
 
 
     return (
-        <form onSubmit={handlePayment} className="space-y-6">
+        <form onSubmit={handlePayment} className="space-y-6 m-auto w-[95%]">
             <div className="flex flex-col space-y-4">
                 <label className="block text-sm font-medium text-gray-700">Card Information</label>
                 <div className="mt-1">
