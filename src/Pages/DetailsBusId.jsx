@@ -36,7 +36,7 @@ export default function DetailsBusId() {
         return (
             <>
                 <Navbar />
-                <div className="h-screen bg-gray-100 py-8 ">
+                <div className=" bg-gray-100 py-8 ">
                     <div className="container mx-auto px-4 h-full">
                         <div className="flex h-full flex-col lg:flex-row bg-white rounded-lg shadow-lg overflow-hidden">
                             <div className="w-full lg:w-1/2">

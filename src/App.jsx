@@ -65,8 +65,7 @@ function App() {
         }
     }, [Token, UserData, Navigate]);
 
-    console.log('test');
-
+    
     // Handle Remove Item Token
     setTimeout(() => {
         localStorage.removeItem('token');
@@ -93,7 +92,6 @@ function App() {
                         <Route path="bus" element={<Buss />} />
                         <Route path="/reservations" element={<Reservations />} />
 
-                        
 
 
 
