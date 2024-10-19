@@ -14,7 +14,7 @@ export default function DetailsBusId() {
     // Fetch the products
     const fetchProducts = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/api/product/${id}`);
+            const response = await fetch(`${import.meta.env.VITE_SOME_URL}/api/product/${id}`);
             const data = await response.json();
             setProduct(data);
         } catch (error) {
