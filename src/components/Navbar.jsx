@@ -95,7 +95,7 @@ export default function Navbar() {
                                 </>
                             )}
                             {UserData && (
-                                <div className='ml-4 flex m-auto items-center justify-center'>
+                                <div className='ml-4 mr-3 flex m-auto items-center justify-center'>
                                     {UserData.role === 'user' &&
                                         <>
                                             <Avatar
