@@ -39,14 +39,22 @@ export default function Navbar() {
                         <li>
                             <Link to={'/'} className='text-neutral-600 font-medium ' >Home</Link>
                         </li>
+                        {UserData.role === 'user' && (
+                            <>
+                                <li>
+                                    <Link to={'/reservations'} className='text-neutral-600 font-medium ' >Reservations</Link>
+                                </li>
+                            </>
+                        )}
+
                         <li>
                             <Link to={'/about'} className='text-neutral-600 font-medium ' >About Us</Link>
                         </li>
                         <li>
-                            <Link className='text-neutral-600 font-medium ' >Bus</Link>
+                            <Link to={'/bus'} className='text-neutral-600 font-medium ' >Bus</Link>
                         </li>
                         <li>
-                            <Link className='text-neutral-600 font-medium ' >Services</Link>
+                            <Link to={'/services'} className='text-neutral-600 font-medium ' >Services</Link>
                         </li>
                     </ul>
                 </div>
@@ -89,7 +97,7 @@ export default function Navbar() {
                             </>
                         )}
                         {UserData && (
-                            <div  className='mx-4 flex  items-center justify-center'>
+                            <div className='mx-4 flex  items-center justify-center'>
                                 {UserData.role === 'user' &&
                                     <>
                                         <Avatar
@@ -97,11 +105,11 @@ export default function Navbar() {
                                             alt={UserData?.user?.name}
                                             src={`${import.meta.env.VITE_SOME_URL}/${UserData?.user?.image}`}
                                             className=' cursor-pointer'
-                                            onClick={()=>{
+                                            onClick={() => {
                                                 Navigate('/portfolio')
                                             }}
                                         />
-                                        <LogoutIcon onClick={handleLogOut} className=' cursor-pointer' sx={{ color: 'black', fontSize: '25px' }} />
+                                        {/* <LogoutIcon onClick={handleLogOut} className=' cursor-pointer' sx={{ color: 'black', fontSize: '25px' }} /> */}
                                     </>
                                 }
                             </div>

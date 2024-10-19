@@ -22,6 +22,10 @@ import ProductDetails from './admin/pages/ProductDetails';
 import DetailsBusId from './Pages/DetailsBusId';
 import About from './Pages/About';
 import CheackOut from './Pages/CheackOut';
+import Services from './Pages/Services';
+import Users from './admin/pages/Users';
+import Buss from './Pages/Buss';
+import Reservations from './Reservations';
 
 
 
@@ -80,12 +84,16 @@ function App() {
                         <Route path="/register" element={UserData.token ? <Navigate to='/' /> : <Register />} />
                         <Route path="/portfolio" element={<Portfolio />} />
 
-                        <Route path="/bus" element={<Productss />} />
+                        {/* <Route path="/bus" element={<Productss />} /> */}
                         <Route path="/bus/View/Details/:id" element={<DetailsBusId />} />
                         <Route path="/bus/:id/reservation" element={<BusId />} />
                         <Route path="/bus/reservation/checkout" element={<CheackOut />} />
                         <Route path="about" element={<About />} />
+                        <Route path="services" element={<Services />} />
+                        <Route path="bus" element={<Buss />} />
+                        <Route path="/reservations" element={<Reservations />} />
 
+                        
 
 
 
@@ -99,6 +107,8 @@ function App() {
                         <Route path="/admin/product/update/:id" element={<ProductUpdate />} />
                         <Route path="/admin/product/details/:id" element={<ProductDetails />} />
                         <Route path="/admin/category/details/:id" element={<CategoryDetails />} />
+                        <Route path="/admin/users" element={<Users />} />
+
 
                     </Routes>
                 </Router>

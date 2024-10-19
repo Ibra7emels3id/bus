@@ -19,7 +19,7 @@ const VisuallyHiddenInput = styled('input')({
     left: 0,
     whiteSpace: 'nowrap',
     width: 1,
-  });
+});
 
 
 
@@ -68,7 +68,7 @@ const Portfolio = () => {
         }
 
         try {
-            const response = await axios.put(`${import.meta.env.VITE_SOME_URL}/api/user/${UserData?.user._id}`, fromData, {
+            const response = await axios.put(`${import.meta.env.VITE_SOME_URL}/api/user/${UserData?.user?._id}`, fromData, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
                     'Content-Type': 'multipart/form-data'
@@ -135,16 +135,6 @@ const Portfolio = () => {
                         <p className="text-sm text-gray-600">
                             Drop your desired image file here to start the upload
                         </p>
-                        {/* <input
-                            onChange={(e) => {
-                                // handle file upload logic here
-                                const file = URL.createObjectURL(e.target.files[0])
-                                setImageUrl(file)
-                                setImageFile(e.target.files[0])
-                            }}
-                            type="file"
-                            className="max-w-full rounded-lg px-2 font-medium text-blue-600 outline-none ring-blue-600 focus:ring-1"
-                        /> */}
                         <Button
                             component="label"
                             role={undefined}
@@ -155,7 +145,12 @@ const Portfolio = () => {
                             Upload files
                             <VisuallyHiddenInput
                                 type="file"
-                                onChange={(event) => console.log(event.target.files)}
+                                onChange={(e) => {
+                                    // handle file upload logic here
+                                    const file = URL.createObjectURL(e.target.files[0])
+                                    setImageUrl(file)
+                                    setImageFile(e.target.files[0])
+                                }}
                                 multiple
                             />
                         </Button>

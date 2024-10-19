@@ -13,7 +13,7 @@ import { toast } from 'react-toastify';
 
 
 
-const ShowDialog = ({ open, handleClose  }) => {
+const ShowDialog = ({ open, handleClose }) => {
     const { UserData } = useContext(ContextData);
     const [formData, setFormData] = useState({
         description: '',
@@ -60,9 +60,9 @@ const ShowDialog = ({ open, handleClose  }) => {
                     Add a review about our work
                 </DialogTitle>
                 <DialogContent>
-                    <div className="flex flex-col gap-4 w-[500px]">
+                    <div className="flex flex-col gap-4 w-full md:w-[500px]">
                         <input value={UserData?.user?.name} className='w-full h-12 border p-3 focus:outline-none ' type="text" name="name" id="name" placeholder='Enter Your Name' />
-                        <input value={UserData?.user?.email}  className='w-full h-12 border p-3 focus:outline-none ' type="text" name="name" id="name" placeholder='Enter Your Email' />
+                        <input value={UserData?.user?.email} className='w-full h-12 border p-3 focus:outline-none ' type="text" name="name" id="name" placeholder='Enter Your Email' />
                         <textarea onChange={handleChange} className='w-full h-28 border p-3 focus:outline-none ' name="description" id="description" placeholder='Enter Your Description'></textarea>
                         <div className="flex gap-4">
                             <Rating onChange={handleChange} name="star" defaultValue={formData.star} />

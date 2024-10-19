@@ -45,7 +45,7 @@ const Login = () => {
                     }
                     toast.success('Login Success')
                     return
-                }).catch(() => {
+                }).catch((error) => {
                     Navigate('/login');
                     console.error('Failed to login');
                     toast.error('please Check Email and Password');

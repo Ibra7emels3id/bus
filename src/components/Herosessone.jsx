@@ -4,7 +4,7 @@ import HearoBus from '../assets/bus3.png'
 const Herosessone = () => {
     return (
         <>
-            <div className="Herosessone overflow-hidden w-full h-[calc(100vh-0px)] bg-cover bg">
+            <div  className="Herosessone overflow-hidden w-full h-[calc(100vh-0px)] bg-cover bg">
                 <div className="flex h-[100%]  w-[90%] m-auto items-center justify-around">
                     <div className="w-full  lg:w-1/2 items-center justify-center text-center lg:items-start lg:text-start flex flex-col gap-5">
                         <h1 className="md:text-8xl text-[55px] font-bold  text-white">Reserve Your <br/>

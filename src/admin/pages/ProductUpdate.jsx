@@ -62,6 +62,11 @@ const ProductUpdate = () => {
         formData.append('price', ProductUpdate.price);
         formData.append('quantity', ProductUpdate.quantity);
         formData.append('category', ProductUpdate.category);
+        formData.append('inTime', ProductUpdate.inTime);
+        formData.append('outTime', ProductUpdate.outTime);
+        formData.append('form', ProductUpdate.form);
+        formData.append('to', ProductUpdate.to);
+        formData.append('date', ProductUpdate.date);
         if (ProductUpdate.image) {
             formData.append('image', ProductUpdate.image);
         }
@@ -126,20 +131,20 @@ const ProductUpdate = () => {
                             />
                         </div>
                         <div className="mb-5">
-                                <label>Date (DD/MM/YYYY):</label>
-                                <input
-                                    onChange={(e) => {
-                                        setProductUpdate({ ...ProductUpdate, date: e.target.value })
-                                    }}
-                                    required
-                                    type="text"
-                                    name="date"
-                                    value={ProductUpdate.date}
-                                    id="date"
-                                    placeholder="Date (DD/MM/YYYY)"
-                                    className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                                />
-                            </div>
+                            <label>Date (DD/MM/YYYY):</label>
+                            <input
+                                onChange={(e) => {
+                                    setProductUpdate({ ...ProductUpdate, date: e.target.value })
+                                }}
+                                required
+                                type="text"
+                                name="date"
+                                value={ProductUpdate.date}
+                                id="date"
+                                placeholder="Date (DD/MM/YYYY)"
+                                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                            />
+                        </div>
                         <div className="mb-5">
                             <label
                                 htmlFor="name"
@@ -156,6 +161,7 @@ const ProductUpdate = () => {
                                     return <option key={it._id} value={it.title}>{it.title}</option>
                                 })}
                             </select>
+                            <p>{ProductUpdate.category}</p>
                         </div>
                         <div className="mb-5">
                             <label
@@ -176,6 +182,93 @@ const ProductUpdate = () => {
                                 className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                             />
                         </div>
+                        <div className="mb-5">
+                            <label
+                                htmlFor="name"
+                                className="mb-3 block text-base font-medium text-[#07074D]"
+                            >
+                                Select Form
+                            </label>
+                            <select onChange={(e) => {
+                                console.log(e.target.value);
+                                // fetch category data
+                                setProductUpdate({ ...ProductUpdate, form: e.target.value })
+                            }} className='w-full h-12 outline-none cursor-pointer border rounded border-1' name="" id="">
+                                <option hidden>Select Form</option>
+                                <option value={'elmansora'}>elmansora</option>
+                                <option value={'cairo'}>cairo</option>
+                            </select>
+                            <p>{ProductUpdate.form}</p>
+                        </div>
+                        <div className="mb-5">
+                            <label
+                                htmlFor="name"
+                                className="mb-3 block text-base font-medium text-[#07074D]"
+                            >
+                                Select to
+                            </label>
+                            <select onChange={(e) => {
+                                setProductUpdate({ ...ProductUpdate, to: e.target.value })
+                            }} className='w-full h-12 outline-none cursor-pointer border rounded border-1' name="" id="">
+                                <option hidden>Select To</option>
+                                <option value={'elmansora'}>elmansora</option>
+                                <option value={'cairo'}>cairo</option>
+                            </select>
+                            <p>{ProductUpdate.to}</p>
+                        </div>
+                        <div className="mb-5">
+                            <label
+                                htmlFor="name"
+                                className="mb-3 block text-base font-medium text-[#07074D]"
+                            >
+                                InTime
+                            </label>
+                            <input
+                                onChange={(e) => {
+                                    setProductUpdate({ ...ProductUpdate, inTime: e.target.value })
+                                }}
+                                value={ProductUpdate.inTime}
+                                type="time"
+                                name="name"
+                                id="name"
+                                placeholder="Enter your It Time"
+                                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                            />
+                        </div>
+                        <div className="mb-5">
+                            <label
+                                htmlFor="name"
+                                className="mb-3 block text-base font-medium text-[#07074D]"
+                            >
+                                OutTime
+                            </label>
+                            <input
+                                onChange={(e) => {
+                                    setProductUpdate({ ...ProductUpdate, outTime: e.target.value })
+                                }}
+                                value={ProductUpdate.outTime}
+                                type="time"
+                                name="name"
+                                id="name"
+                                placeholder="Enter your It Time"
+                                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                            />
+                        </div>
+                        <div className="mb-5">
+                                <label>Date (DD/MM/YYYY):</label>
+                                <input
+                                    onChange={(e) => {
+                                        setProductUpdate({ ...ProductUpdate, date: e.target.value })
+                                    }}
+                                    required
+                                    type="text"
+                                    name="date"
+                                    id="date"
+                                    value={ProductUpdate.date}
+                                    placeholder="Date (DD/MM/YYYY)"
+                                    className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                                />
+                            </div>
                         <div className="mb-5">
                             <label
                                 htmlFor="number"

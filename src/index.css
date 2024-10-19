@@ -5,7 +5,8 @@
 :root {
   font-family: "Inter", sans-serif;
 }
-body{
+
+body {
   background-color: white !important;
 }
 
@@ -16,6 +17,19 @@ body{
   -o-background-size: cover;
   background-size: cover;
   /* height: 500px !important; */
-  background-position: bottom center;;
+  background-position: bottom center;
+  object-fit: contain;
   /* background-attachment: fixed; */
+}
+
+.swiper-button-prev:after,
+.swiper-rtl .swiper-button-next:after {
+  content: 'prev';
+  font-size: 32px !important;
+}
+
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after {
+  content: 'next';
+  font-size: 32px !important;
 }

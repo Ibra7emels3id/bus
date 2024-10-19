@@ -27,6 +27,8 @@ const CheckoutForm = () => {
         }));
     };
 
+    console.log(clientSecret2?.productId);
+
 
     const fetchData = async () => {
         try {
@@ -73,6 +75,8 @@ const CheckoutForm = () => {
                     from: clientSecret2?.from,
                     to: clientSecret2?.to,
                     name: UserData?.user?.name,
+                    productId: clientSecret2?.productId,
+                    lengthChairs: clientSecret2?.lengthChairs,
                     items: clientSecret2.chair.map(item => {
                         return {
                             chair: item.chairNumber,
@@ -80,6 +84,7 @@ const CheckoutForm = () => {
                             email: item.email,
                             chairId: item.chairId,
                             UserId: UserData?.user?.userId,
+                            status: item?.status
                         }
                     })
 

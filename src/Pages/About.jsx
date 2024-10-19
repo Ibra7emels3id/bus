@@ -5,200 +5,48 @@ import Footer from '../components/Footer';
 const About = () => {
     return (
         <>
-            <Navbar/>
-            <section className="bg-gray-100 text-white">
-                <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
-                    <div className="mx-auto max-w-lg text-center">
-                        <h2 className="text-3xl text-black  font-bold sm:text-4xl">Kickstart your marketing</h2>
+            <Navbar />
+            <section>
+                <div className="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
+                    <div className="grid grid-cols-1 lg:h-screen lg:grid-cols-2">
+                        <div className="relative z-10 lg:py-16">
+                            <div className="relative h-64 sm:h-80 lg:h-full">
+                                <img
+                                    alt=""
+                                    src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                                    className="absolute inset-0 h-full w-full object-cover"
+                                />
+                            </div>
+                        </div>
 
-                        <p className="mt-4 text-gray-900">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur aliquam doloribus
-                            nesciunt eos fugiat. Vitae aperiam fugit consequuntur saepe laborum.
-                        </p>
-                    </div>
+                        <div className="relative flex items-center bg-gray-100">
+                            <span
+                                className="hidden lg:absolute lg:inset-y-0 lg:-start-16 lg:block lg:w-16 lg:bg-gray-100"
+                            ></span>
 
-                    <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    <a
-                            className="block rounded-xl border border-gray-400 p-8 shadow-xl transition hover:border-violet-100 hover:shadow-violet-600/10"
-                            href="#"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="size-10 text-violet-600"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                                <path
-                                    d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-                                />
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-                                />
-                            </svg>
-                            <h2 className="mt-4 text-xl font-bold text-neutral-950">Digital campaigns</h2>
-                            <p className="mt-1 text-sm text-gray-500">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo possimus adipisci
-                                distinctio alias voluptatum blanditiis laudantium.
-                            </p>
-                        </a>
-                        <a
-                            className="block rounded-xl border border-gray-400 p-8 shadow-xl transition hover:border-violet-100 hover:shadow-violet-600/10"
-                            href="#"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="size-10 text-violet-600"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                                <path
-                                    d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-                                />
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-                                />
-                            </svg>
-                            <h2 className="mt-4 text-xl font-bold text-neutral-950">Digital campaigns</h2>
-                            <p className="mt-1 text-sm text-gray-500">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo possimus adipisci
-                                distinctio alias voluptatum blanditiis laudantium.
-                            </p>
-                        </a>
-                        <a
-                            className="block rounded-xl border border-gray-400 p-8 shadow-xl transition hover:border-violet-100 hover:shadow-violet-600/10"
-                            href="#"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="size-10 text-violet-600"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                                <path
-                                    d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-                                />
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-                                />
-                            </svg>
-                            <h2 className="mt-4 text-xl font-bold text-neutral-950">Digital campaigns</h2>
-                            <p className="mt-1 text-sm text-gray-500">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo possimus adipisci
-                                distinctio alias voluptatum blanditiis laudantium.
-                            </p>
-                        </a>
-                        <a
-                            className="block rounded-xl border border-gray-400 p-8 shadow-xl transition hover:border-violet-100 hover:shadow-violet-600/10"
-                            href="#"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="size-10 text-violet-600"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                                <path
-                                    d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-                                />
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-                                />
-                            </svg>
-                            <h2 className="mt-4 text-xl font-bold text-neutral-950">Digital campaigns</h2>
-                            <p className="mt-1 text-sm text-gray-500">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo possimus adipisci
-                                distinctio alias voluptatum blanditiis laudantium.
-                            </p>
-                        </a>
-                        <a
-                            className="block rounded-xl border border-gray-400 p-8 shadow-xl transition hover:border-violet-100 hover:shadow-violet-600/10"
-                            href="#"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="size-10 text-violet-600"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                                <path
-                                    d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-                                />
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-                                />
-                            </svg>
-                            <h2 className="mt-4 text-xl font-bold text-neutral-950">Digital campaigns</h2>
-                            <p className="mt-1 text-sm text-gray-500">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo possimus adipisci
-                                distinctio alias voluptatum blanditiis laudantium.
-                            </p>
-                        </a>
-                        <a
-                            className="block rounded-xl border border-gray-400 p-8 shadow-xl transition hover:border-violet-100 hover:shadow-violet-600/10"
-                            href="#"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="size-10 text-violet-600"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                                <path
-                                    d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-                                />
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-                                />
-                            </svg>
-                            <h2 className="mt-4 text-xl font-bold text-neutral-950">Digital campaigns</h2>
-                            <p className="mt-1 text-sm text-gray-500">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo possimus adipisci
-                                distinctio alias voluptatum blanditiis laudantium.
-                            </p>
-                        </a>
-                        
-                    </div>
-                    <div className="mt-12 text-center">
-                        <a
-                            href="#"
-                            className="inline-block rounded bg-violet-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-violet-900 focus:outline-none focus:ring focus:ring-yellow-400"
-                        >
-                            Get Started Today
-                        </a>
+                            <div className="p-8 sm:p-16 lg:p-24">
+                                <h2 className="text-2xl font-bold sm:text-3xl">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, debitis.
+                                </h2>
+
+                                <p className="mt-4 text-gray-600">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, molestiae! Quidem est
+                                    esse numquam odio deleniti, beatae, magni dolores provident quaerat totam eos, aperiam
+                                    architecto eius quis quibusdam fugiat dicta.
+                                </p>
+
+                                <a
+                                    href="#"
+                                    className="mt-8 inline-block rounded border border-violet-600 bg-violet-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-violet-700 focus:outline-none focus:ring active:text-indigo-500"
+                                >
+                                    Get in Touch
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
-            <Footer/>
+            <Footer />
         </>
     );
 }

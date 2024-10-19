@@ -15,12 +15,12 @@ export default function MainNavbar() {
                 <ul className='flex flex-col gap-5 w-full px-5'>
                     <li className='w-full'><Link className='bg-[#fff] px-3 py-2 rounded-3xl w-full text-center flex items-center justify-center' to="/admin"><AdminPanelSettingsIcon className='mx-2' /> <span className=' hidden md:block'>Dashboard</span></Link></li>
                     <li className='w-full'><Link className='bg-[#fff] px-3 py-2 rounded-3xl w-full text-center flex items-center justify-center' to="/admin/users"><GroupIcon className='mx-2' /><span className=' hidden md:block'>Users</span></Link></li>
-                    <li className='w-full'><Link className='bg-[#fff] px-3 py-2 rounded-3xl w-full  text-center flex items-center justify-center' to="/admin/adduser"><GroupAddIcon className='mx-2' /><span className=' hidden md:block'>AddUser</span></Link></li>
+                    {/* <li className='w-full'><Link className='bg-[#fff] px-3 py-2 rounded-3xl w-full  text-center flex items-center justify-center' to="/admin/adduser"><GroupAddIcon className='mx-2' /><span className=' hidden md:block'>AddUser</span></Link></li> */}
                     <li className='w-full'><Link className='bg-[#fff] px-3 py-2 rounded-3xl w-full  text-center flex items-center justify-center' to="/admin/category"><CategoryIcon className='mx-2' /><span className=' hidden md:block'>Category</span></Link></li>
                     <li className='w-full'><Link className='bg-[#fff] px-3 py-2 rounded-3xl w-full  text-center flex items-center justify-center' to="/admin/AddCategory"><ControlPointDuplicateIcon className='mx-2' /><span className=' hidden md:block'>AddCategory</span></Link></li>
                     <li className='w-full'><Link className='bg-[#fff] px-3 py-2 rounded-3xl w-full  text-center flex items-center justify-center' to="/admin/Products"><ProductionQuantityLimitsIcon className='mx-2' /><span className=' hidden md:block'>Products</span></Link></li>
                     <li className='w-full'><Link className='bg-[#fff] px-3 py-2 rounded-3xl w-full  text-center flex items-center justify-center' to="/admin/addproduct"><AddToPhotosIcon className='mx-2' /><span className=' hidden md:block'>AddProduct</span></Link></li>
-                    <li className='w-full'><Link className='bg-[#fff] px-3 py-2 rounded-3xl w-full  text-center flex items-center justify-center' to="/admin/settings"><EditIcon className='mx-2' /><span className=' hidden md:block'>settings</span></Link></li>
+                    {/* <li className='w-full'><Link className='bg-[#fff] px-3 py-2 rounded-3xl w-full  text-center flex items-center justify-center' to="/admin/settings"><EditIcon className='mx-2' /><span className=' hidden md:block'>settings</span></Link></li> */}
                 </ul>
             </nav>
         </>

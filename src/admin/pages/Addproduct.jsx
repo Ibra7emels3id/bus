@@ -596,7 +596,7 @@ function Addproduct() {
     const handleSubmit = (e) => {
         e.preventDefault();
         // add product to db
-        console.log(product);
+
         const formData = new FormData();
         formData.append('title', product.title);
         formData.append('category', product.category);

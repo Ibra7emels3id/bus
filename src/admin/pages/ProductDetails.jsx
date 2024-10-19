@@ -4,6 +4,8 @@ import MainNavbar from '../_Components/MainNavbar';
 import Header from '../_Components/Header';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import ChairAltIcon from '@mui/icons-material/ChairAlt';
+
 
 const ProductDetails = () => {
     const { id } = useParams()
@@ -11,6 +13,7 @@ const ProductDetails = () => {
     const [product, setProduct] = React.useState([]);
 
 
+    console.log(product);
 
 
     // Fetch the products
@@ -54,8 +57,24 @@ const ProductDetails = () => {
                     <div className='p-5 w-full'>
                         <h1 className='py-4 text-3xl text-[#6d28d9] font-medium'>Products Details</h1>
                         <div className="item">
-                            <div className="image flex items-center justify-center">
-                                <img className='rounded-xl my-5 w-[350px]' src={`${import.meta.env.VITE_SOME_URL}/${product?.image}`} alt={product?.name} />
+                            <div className="flex">
+                                <div className="image w-1/2 flex items-center justify-center">
+                                    <img className='rounded-xl my-5 w-[350px]' src={`${import.meta.env.VITE_SOME_URL}/${product?.image}`} alt={product?.name} />
+                                </div>
+                                <div className="text w-1/2 flex flex-col gap-10">
+                                    <p className="text-3xl font-bold mb-2">{product?.category}</p>
+                                    <p className="text-gray-600 mb-4 text-start">{product?.date}</p>
+                                    <p className="text-gray-600 mb-4 text-start">{product?.form} - {product?.to}</p>
+                                    <p className="text-gray-600 mb-4 text-start">{product?.inTime} - {product?.outTime}</p>
+
+                                </div>
+                            </div>
+                            <div className="chairs w-full flex gap-7 flex-wrap my-10">
+                                {product?.chairAll?.map((it) => {
+                                    return (
+                                        <button key={it._id} type='button' className={`w-14 h-14 rounded-lg ${it.chair === 'reservation' ? 'bg-green-950' : 'bg-red-700' } bg-red-500 flex items-center justify-center text-white`}><ChairAltIcon /></button>
+                                    )
+                                })}
                             </div>
                             <h2 className="text-2xl font-medium mb-2">{product?.name}</h2>
                             <p className="text-gray-600 mb-4 text-center">{product?.description}</p>

@@ -94,12 +94,10 @@ export default function BusId() {
                     return null;
                 })
                 .filter(Boolean);
-
             if (selectedChairs.length === 0) {
                 console.log('No chairs selected for reservation.');
                 return;
             }
-
             const reservationData = {
                 name: UserData?.user?.name,
                 email: UserData?.user?.email,
@@ -116,6 +114,7 @@ export default function BusId() {
                 date: product?.date,
                 from: product?.form,
                 to: product?.to,
+                ProductId: id
             };
 
             // Make API call to create reservation
@@ -228,6 +227,7 @@ export default function BusId() {
                                     )
                                 ))}
                             </div>
+
                             <div className="btn">
                                 <button className="w-full h-12 rounded-xl px-3 text-white flex items-center justify-center text-2xl bg-[#6d28d9]" type="submit">
                                     Submit

@@ -46,7 +46,7 @@ const Category = () => {
                     {category?.slice(0, 3).map((it) => {
                         return (
                             <div key={it._id} className="box h-72 flex items-center justify-center rounded-2xl bg-[#f5f5f5]">
-                                <img className='w-[300px]' src={`${import.meta.env.VITE_SOME_URL}/${it.image}`} alt="" />
+                                <img loading='lazy' className='w-[300px]' src={`${import.meta.env.VITE_SOME_URL}/${it.image}`} alt="" />
                             </div>
                         )
                     })}
