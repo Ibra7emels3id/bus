@@ -8,7 +8,7 @@ export default function DetailsBusId() {
     const { id } = useParams();
     const [product, setProduct] = useState({});
     const [condition, setCondition] = useState([]);
-    // const Navigate = useNavigate()
+    const navigate = useNavigate()
     const { UserData } = useContext(ContextData);
 
     // Fetch the products
@@ -58,12 +58,12 @@ export default function DetailsBusId() {
     
                                 <div className="flex gap-4">
                                     <button onClick={() => {
-                                        Navigate(`/bus/${product._id}/reservation`)
+                                        navigate(`/bus/${product._id}/reservation`)
                                     }} className="bg-blue-600 w-1/2 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded">
                                         Book a ticket
                                     </button>
                                     <button onClick={() => {
-                                        Navigate('/')
+                                        navigate('/')
                                     }} className="bg-gray-600 w-1/2 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded">
                                         Go Back TO Home
                                     </button>
