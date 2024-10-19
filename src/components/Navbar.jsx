@@ -38,7 +38,7 @@ export default function Navbar() {
     return (
         <div className=' bg-neutral-100 h-[65px] m-auto  justify-between flex items-center '>
             {/* Logo section */}
-            <div className="flex w-[90%] m-auto justify-between items-center  ">
+            <div className="flex w-[95%] m-auto justify-between items-center  ">
                 <div className="logo flex items-center">
                     <Link to={"/"} className=''>
                         <img src={Logo} alt="logo" className="w-28 h-auto object-contain" />
@@ -105,7 +105,7 @@ export default function Navbar() {
                             </>
                         )}
                         {UserData && (
-                            <div className='mx-4 flex m-auto items-center justify-center'>
+                            <div className='ml-4 flex m-auto items-center justify-center'>
                                 {UserData.role === 'user' &&
                                     <>
                                         <Avatar
