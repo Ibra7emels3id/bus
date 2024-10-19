@@ -11,14 +11,16 @@ import Reviews from '../components/Reviews'
 function Home() {
     return (
         <>
-            <Navbar />
-            <Herosessone />
-            <FormAvilabuil />
-            <Category />
-            <Offers />
-            <TeamWorks />
-            <Reviews />
-            <Footer/>
+            <div className="w-full">
+                <Navbar />
+                <Herosessone />
+                <FormAvilabuil />
+                <Category />
+                <Offers />
+                <TeamWorks />
+                <Reviews />
+                <Footer />
+            </div>
         </>
     )
 }

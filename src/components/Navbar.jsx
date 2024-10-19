@@ -82,21 +82,10 @@ export default function Navbar() {
                                     <p className="text-xs font-normal text-neutral-50 tracking-wide">+91 1234567890</p>
                                 </div>
                             </div>
-                            <div className="them rounded-full bg-white p-3 mx-3  cursor-pointer ">
+                            {/* <div className="them rounded-full bg-white p-3 mx-3  cursor-pointer ">
                                 <BrightnessHighIcon sx={{ color: 'black', fontSize: '25px' }} />
-                            </div>
-                            <label onClick={toggleDrawer(true)} className="flex lg:hidden  mx-4 flex-col gap-2 w-8">
-                                <input className="peer hidden" type={`${open !== false ? 'checkbox' : 'text'}`} />
-                                <div
-                                    className="rounded-2xl h-[3px] w-1/2 bg-black duration-500 peer-checked:rotate-[225deg] origin-right peer-checked:-translate-x-[12px] peer-checked:-translate-y-[1px]"
-                                ></div>
-                                <div
-                                    className="rounded-2xl h-[3px] w-full bg-black duration-500 peer-checked:-rotate-45"
-                                ></div>
-                                <div
-                                    className="rounded-2xl h-[3px] w-1/2 bg-black duration-500 place-self-end peer-checked:rotate-[225deg] origin-left peer-checked:translate-x-[12px] peer-checked:translate-y-[1px]"
-                                ></div>
-                            </label>
+                            </div> */}
+
                             {UserData.role === 'admin' && (
                                 <>
                                     <Link className='mx-4' to={'/admin'}>
@@ -124,6 +113,18 @@ export default function Navbar() {
                                 </div>
                             )}
                             {!UserData.role && <Link to={'/login'}>Login</Link>}
+                            <label onClick={toggleDrawer(true)} className="flex lg:hidden  mx-4 flex-col gap-2 w-8">
+                                <input className="peer hidden" type={`${open !== false ? 'checkbox' : 'text'}`} />
+                                <div
+                                    className="rounded-2xl h-[3px] w-1/2 bg-black duration-500 peer-checked:rotate-[225deg] origin-right peer-checked:-translate-x-[12px] peer-checked:-translate-y-[1px]"
+                                ></div>
+                                <div
+                                    className="rounded-2xl h-[3px] w-full bg-black duration-500 peer-checked:-rotate-45"
+                                ></div>
+                                <div
+                                    className="rounded-2xl h-[3px] w-1/2 bg-black duration-500 place-self-end peer-checked:rotate-[225deg] origin-left peer-checked:translate-x-[12px] peer-checked:translate-y-[1px]"
+                                ></div>
+                            </label>
                         </div>
                     </div>
                 </div>
