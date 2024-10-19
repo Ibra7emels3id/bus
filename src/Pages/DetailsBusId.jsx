@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { ContextData } from '../context/ContextApi';
 import Loader from '../components/Loader';
@@ -8,7 +8,7 @@ export default function DetailsBusId() {
     const { id } = useParams();
     const [product, setProduct] = useState({});
     const [condition, setCondition] = useState([]);
-    const Navigate = useNavigate()
+    // const Navigate = useNavigate()
     const { UserData } = useContext(ContextData);
 
     // Fetch the products
@@ -75,7 +75,7 @@ export default function DetailsBusId() {
             </>
         );
     } else {
-        Navigate('/');
+        <Navigate to='/' />;
     }
 
     
