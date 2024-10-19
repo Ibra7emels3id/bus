@@ -34,7 +34,7 @@ export default function FormAvilabuil() {
         console.log('Submit', Data);
 
         try {
-            const res = await axios.post(`http://localhost:3000/api/listBus`, Data, {
+            const res = await axios.post(`${import.meta.env.}/api/listBus`, Data, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
