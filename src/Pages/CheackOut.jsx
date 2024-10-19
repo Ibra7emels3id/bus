@@ -133,51 +133,78 @@ const CheckoutForm = () => {
 
 
     return (
-        <form onSubmit={handlePayment} className="space-y-6 m-auto w-[95%]">
-            <div className="flex flex-col space-y-4">
-                <label className="block text-sm font-medium text-gray-700">Card Information</label>
-                <div className="mt-1">
-                    <CardElement className="block w-full border-gray-300 rounded-md shadow-sm p-3 border focus:ring-blue-500 focus:border-blue-500 sm:text-sm" />
+        <>
+            <div className="flex w-full">
+
+                <div className="flex-wrap md:flex w-full">
+                    <div className="p-6 w-1/2 flex flex-col gap-5">
+                        <h2 className="text-2xl font-bold bg-red-300 p-3">
+                                Id:  {clientSecret2?.productId}
+                        </h2>
+                        <p className='bg-zinc-200 p-3 '>
+                            <strong>Total Price:</strong> ${clientSecret2?.totalPrice}
+                        </p>
+                        <p className='bg-zinc-200 p-3 '>
+                            <strong>Date:</strong> {clientSecret2?.date}
+                        </p>
+                        <p className='bg-zinc-200 p-3 '>
+                            <strong>From:</strong> {clientSecret2?.from}
+                        </p>
+                        <p className='bg-zinc-200 p-3 '>
+                            <strong>To:</strong> {clientSecret2?.to}
+                        </p>
+                        <p className='bg-zinc-200 p-3 '>
+                            <strong>Length Chairs:</strong> {clientSecret2?.lengthChairs}
+                        </p>
+                    </div>
+                    <form onSubmit={handlePayment} className="space-y-6  m-auto w-full md:w-1/2 p-10">
+                        <div className="flex flex-col space-y-4">
+                            <label className="block text-sm font-medium text-gray-700">Card Information</label>
+                            <div className="mt-1">
+                                <CardElement className="block w-full border-gray-300 rounded-md shadow-sm p-3 border focus:ring-blue-500 focus:border-blue-500 sm:text-sm" />
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 gap-6">
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700">Name on Card</label>
+                                <input
+                                    onChange={handleInputChange}
+                                    name='name'
+                                    type="text"
+                                    className="block w-full border-gray-300 rounded-md shadow-sm p-3 border focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                    placeholder="Enter Your Name Cart"
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700">Email</label>
+                                <input
+                                    type="email"
+                                    className="block w-full border-gray-300 rounded-md shadow-sm p-3 border focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                    placeholder="example@mail.com"
+                                />
+                            </div>
+                        </div>
+
+                        <button
+                            type="submit"
+                            disabled={!stripe || isLoading}
+                            className="w-full bg-blue-500 text-white py-3 px-4 rounded-md shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        >
+                            {isLoading ? 'Processing...' : 'Pay Now'}
+                        </button>
+                    </form>
                 </div>
             </div>
-
-            <div className="grid grid-cols-1 gap-6">
-                <div>
-                    <label className="block text-sm font-medium text-gray-700">Name on Card</label>
-                    <input
-                        onChange={handleInputChange}
-                        name='name'
-                        type="text"
-                        className="block w-full border-gray-300 rounded-md shadow-sm p-3 border focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                        placeholder="Enter Your Name Cart"
-                    />
-                </div>
-
-                <div>
-                    <label className="block text-sm font-medium text-gray-700">Email</label>
-                    <input
-                        type="email"
-                        className="block w-full border-gray-300 rounded-md shadow-sm p-3 border focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                        placeholder="example@mail.com"
-                    />
-                </div>
-            </div>
-
-            <button
-                type="submit"
-                disabled={!stripe || isLoading}
-                className="w-full bg-blue-500 text-white py-3 px-4 rounded-md shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-            >
-                {isLoading ? 'Processing...' : 'Pay Now'}
-            </button>
-        </form>
+        </>
     );
 };
 
 const CheckoutPage = () => {
     return (
         <div className="flex h-screen w-full items-center justify-center">
-            <div className="w-full max-w-md">
+            <div className="w-full ">
                 <Elements stripe={stripePromise}>
                     <CheckoutForm />
                 </Elements>
