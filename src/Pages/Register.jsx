@@ -41,6 +41,8 @@ const Register = () => {
             setLoding(false)
         } catch (error) {
             console.error('Failed to register')
+        } finally {
+            setLoding(false)
         }
     }
 
