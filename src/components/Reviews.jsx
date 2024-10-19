@@ -16,7 +16,6 @@ export default function SliderComponent() {
     const { UserData } = useContext(ContextData);
     const Navigate = useNavigate();
 
-    console.log(UserData?.user?.image);
 
     const GetData = async () => {
         try {
@@ -84,7 +83,7 @@ export default function SliderComponent() {
                                         <div className="flex items-center gap-0.5 text-green-500">
                                             <div className="image mr-4">
                                                 {/* {UserData?.user?.image ? <img className="object-cover w-20 h-20 rounded-full" src={`${import.meta.env.VITE_SOME_URL}/${UserData?.user.image}`} alt="Image 1" /> : <img className="object-cover w-20 h-20 rounded-full" src={'https://img.freepik.com/free-photo/handsome-confident-smiling-man-with-hands-crossed-chest_176420-18743.jpg'} alt="Image 1" />} */}
-                                                <img className="object-cover w-20 h-20 rounded-full" src={'https://img.freepik.com/free-photo/handsome-confident-smiling-man-with-hands-crossed-chest_176420-18743.jpg'} alt="Image 1" />
+                                                <img loading="lazy" className="object-cover w-20 h-20 rounded-full" src={'https://img.freepik.com/free-photo/handsome-confident-smiling-man-with-hands-crossed-chest_176420-18743.jpg'} alt="Image 1" />
                                             </div>
                                             <div className="title">
                                                 <p className="text-2xl font-bold text-violet-900 sm:text-3xl">{it.name}</p>

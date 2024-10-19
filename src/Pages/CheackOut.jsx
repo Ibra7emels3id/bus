@@ -4,6 +4,8 @@ import { Elements, CardElement, useStripe, useElements } from '@stripe/react-str
 import { ContextData } from '../context/ContextApi';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 // Key Stripe
 const stripePromise = loadStripe('pk_test_51PDqAJP7DuJ1bxg9C8hrMTzsSl9qWrMA0oRfdqGKPdxcjO0LwgVWHRTQxxMjxpEn1AJYB9Dta5DfXW8f21hmQMD500wQY8u1pG');
@@ -135,11 +137,10 @@ const CheckoutForm = () => {
     return (
         <>
             <div className="flex w-full">
-
                 <div className="flex-wrap md:flex w-full">
                     <div className="p-6 w-1/2 flex flex-col gap-5">
                         <h2 className="text-2xl font-bold bg-red-300 p-3">
-                                Id:  {clientSecret2?.productId}
+                            Id:  {clientSecret2?.productId}
                         </h2>
                         <p className='bg-zinc-200 p-3 '>
                             <strong>Total Price:</strong> ${clientSecret2?.totalPrice}
@@ -203,13 +204,17 @@ const CheckoutForm = () => {
 
 const CheckoutPage = () => {
     return (
-        <div className="flex h-screen w-full items-center justify-center">
-            <div className="w-full ">
-                <Elements stripe={stripePromise}>
-                    <CheckoutForm />
-                </Elements>
+        <>
+            <Navbar />
+            <div className="flex h-screen w-full items-center justify-center">
+                <div className="w-full ">
+                    <Elements stripe={stripePromise}>
+                        <CheckoutForm />
+                    </Elements>
+                </div>
             </div>
-        </div>
+            <Footer />
+        </>
     );
 };
 
