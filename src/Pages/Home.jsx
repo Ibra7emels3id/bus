@@ -21,7 +21,7 @@ function Home() {
             const response = await fetch(`${import.meta.env.VITE_SOME_URL}/api/products`)
             const data = await response.json()
             setProducts(data)
-            
+            setLoading(false)
         } catch (error) {
             console.error(error)
             setLoading(false)
