@@ -10,15 +10,21 @@ export default function DetailsBusId() {
     const [condition, setCondition] = useState([]);
     const navigate = useNavigate()
     const { UserData } = useContext(ContextData);
+    const [loading, setLoading] = useState(true);
 
     // Fetch the products
     const fetchProducts = async () => {
+        setLoading(true); 
         try {
             const response = await fetch(`${import.meta.env.VITE_SOME_URL}/api/product/${id}`);
             const data = await response.json();
             setProduct(data);
         } catch (error) {
             console.error('Error fetching product:', error);
+            alert('Error fetching product data. Please try again later.');
+            setLoading(false);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -27,8 +33,8 @@ export default function DetailsBusId() {
     }, [id]);
 
 
-    if (!product) {
-        return <Loader/>; // Show loading while fetching product data
+    if (loading) {
+        return <Loader/>;
     }
 
 

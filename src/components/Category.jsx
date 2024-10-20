@@ -35,7 +35,7 @@ const Category = () => {
 
     return (
         <>
-            <div className="category p-6 w-full m-auto md:w-[85%] mt-24 mb-24 mx-auto">
+            <div className="wow animate__animated animate__fadeInUp category p-6 w-full m-auto md:w-[85%] mt-24 mb-24 mx-auto">
                 <div className="flex items-center justify-between">
                     <h1 className="text-3xl text-[#4f4f4f] font-bold text-start px-5 ">Categories</h1>
                     <button onClick={() => {

@@ -121,13 +121,13 @@ export default function BusId() {
             const reservationResponse = await axios.post(`${import.meta.env.VITE_SOME_URL}/api/reservations`, reservationData);
 
             // Update chair conditions after reservation
-            await Promise.all(
-                selectedChairs.map(chair => {
-                    return axios.put(`${import.meta.env.VITE_SOME_URL}/api/product/AddChair/update/${id}/chair/${chair.chairId}`, {
-                        chair: 'reservation'
-                    });
-                })
-            );
+            // await Promise.all(
+            //     selectedChairs.map(chair => {
+            //         return axios.put(`${import.meta.env.VITE_SOME_URL}/api/product/AddChair/update/${id}/chair/${chair.chairId}`, {
+            //             chair: 'reservation'
+            //         });
+            //     })
+            // );
 
             console.log('Reservation successful:', reservationResponse.data);
             navigate('/bus/reservation/checkout'); // Optionally navigate to a success page

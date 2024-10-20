@@ -4,10 +4,11 @@ import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 
-
 export default function FormAvilabuil() {
     const { UserData } = useContext(ContextData)
     const [DataSearch, setDataSearch] = useState([]);
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
     const [Data, setData] = useState({
         form: '',
         to: '',
@@ -17,8 +18,7 @@ export default function FormAvilabuil() {
         total: ''
     });
 
-    const navigate = useNavigate();
-
+    // Handle navigation
     const handleNaveiaget = () => {
         navigate('/login');
     };
@@ -31,17 +31,13 @@ export default function FormAvilabuil() {
     // Send data to the server
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Submit', Data);
-
+        setLoading(true);
         try {
             const res = await axios.post(`${import.meta.env.VITE_SOME_URL}/api/listBus`, Data, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
             })
-
-            console.log(res);
-
             if (res.status === 200) {
                 setDataSearch(res.data);
             } else if (res.status === 404) {
@@ -52,12 +48,16 @@ export default function FormAvilabuil() {
         } catch (error) {
             console.error(error.response.data.message);
             setDataSearch([]);
+            setLoading(false);
+        } finally {
+            setLoading(false);
         }
     };
 
+
     return (
         <>
-            <div className="flex flex-col mt-20">
+            <div className="flex flex-col mt-20 wow animate__animated animate__fadeInUp">
                 <form onSubmit={handleSubmit} className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 bg-[#f5f5f5] my-10 p-10 w-[95%] md:w-[80%] m-auto' action="" method="post">
                     <div className="form w-full">
                         <label htmlFor="form">Form</label>
@@ -96,7 +96,7 @@ export default function FormAvilabuil() {
                     <div className="submit w-full">
                         {
                             UserData.token ?
-                                <input className='bg-[#6d28d9] cursor-pointer mt-6 rounded-lg h-12 text-white w-full' type="submit" value="Submit" /> :
+                                <input className='bg-[#6d28d9] cursor-pointer mt-6 rounded-lg h-12 text-white w-full' type="submit" value={`${loading ? 'process...' : "Submit"}`} /> :
                                 <button onClick={handleNaveiaget} className='w-full h-12 bg-[#2196F3] mt-6 text-white rounded-lg hover:bg-[#1e88e5]' type="button">Login Please</button>
                         }
                     </div>
@@ -105,21 +105,23 @@ export default function FormAvilabuil() {
                     <div className="boxs w-full py-5">
                         <h1 className="text-[#6d28d9] text-center font-bold mt-8 ml-4 my-5">List of Bus Avilability</h1>
                         {/* Display the list of buses here */}
-                        {DataSearch.map((it) => {
-                            return (
-                                <div key={it._id} className="box rounded bg-white m-auto w-[97%] flex items-center justify-between">
-                                    <div className="flex">
-                                        <img width={100} src={`${import.meta.env.VITE_SOME_URL}/${it.image}`} alt="" />
+                        <div className=' overflow-scroll'>
+                            {DataSearch.map((it) => {
+                                return (
+                                    <div key={it._id} className="box rounded bg-white m-auto w-[850px] lg:w-[95%] flex items-center justify-between">
+                                        <div className="flex">
+                                            <img width={100} src={`${import.meta.env.VITE_SOME_URL}/${it.image}`} alt="" />
+                                        </div>
+                                        <h2 className="text-black text-center font-bold">{it.form} - {it.to}</h2>
+                                        <p>Date: {it.date}</p>
+                                        <p>In Time: {it.inTime}</p>
+                                        <p>Out Time: {it.outTime}</p>
+                                        <p>Price: {it.price}</p>
+                                        <Link to={`/bus/View/Details/${it._id}`} className='w-12'><RemoveRedEyeIcon /></Link>
                                     </div>
-                                    <h2 className="text-black text-center font-bold">{it.form} - {it.to}</h2>
-                                    <p>Date: {it.date}</p>
-                                    <p>In Time: {it.inTime}</p>
-                                    <p>Out Time: {it.outTime}</p>
-                                    <p>Price: {it.price}</p>
-                                    <Link to={`/bus/View/Details/${it._id}`} className='w-12'><RemoveRedEyeIcon /></Link>
-                                </div>
-                            )
-                        })}
+                                )
+                            })}
+                        </div>
                     </div>
                 </div>}
             </div>

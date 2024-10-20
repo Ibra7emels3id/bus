@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import axios from 'axios';
 
 // Key Stripe
 const stripePromise = loadStripe('pk_test_51PDqAJP7DuJ1bxg9C8hrMTzsSl9qWrMA0oRfdqGKPdxcjO0LwgVWHRTQxxMjxpEn1AJYB9Dta5DfXW8f21hmQMD500wQY8u1pG');
@@ -29,7 +30,7 @@ const CheckoutForm = () => {
         }));
     };
 
-    console.log(clientSecret2?.productId);
+    console.log(clientSecret2);
 
 
     const fetchData = async () => {
@@ -109,6 +110,24 @@ const CheckoutForm = () => {
                     },
                 },
             });
+
+            const Res = await Promise.all(
+                clientSecret2?.chair.map((it) => {
+                    return axios.put(`${import.meta.env.VITE_SOME_URL}/api/product/AddChair/update/${clientSecret2?.productId}/chair/${it.chairId}`, {
+                        chair: 'reservation'
+                    });
+                })
+            );
+
+            console.log(Res);
+
+            if (Res.status === 200) {
+                console.log('Chair updated successfully');
+            } else {
+                console.error('Error updating chair status');
+            }
+
+
 
             if (result.error) {
                 console.error(result.error.message);

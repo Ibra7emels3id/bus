@@ -9,7 +9,7 @@ import { Navigation, Autoplay } from 'swiper/modules';
 
 export default function TeamWorks() {
     return (
-        <section className="bg-gray-50 w-full py-28">
+        <section className="wow animate__animated animate__fadeInUp bg-gray-50 w-full py-28">
             <div className="mx-auto max-w-[100%] px-8">
                 <div className="w-full items-end justify-between sm:flex sm:pe-6 lg:pe-8">
                     <h2 className="w-[98%] md:w-[40%] text-center m-auto text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
