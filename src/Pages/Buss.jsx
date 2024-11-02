@@ -48,11 +48,13 @@ export default function Buss() {
                             return (
                                 <li key={it._id} className='bg-slate-900 border'>
                                     <Link to="/" className="group block overflow-hidden">
+                                        <div className="img h-[350px]">
                                         <img
                                             src={`${import.meta.env.VITE_SOME_URL}/${it.image}`}
                                             alt={it.title}
                                             className="transition duration-500 group-hover:scale-105"
                                         />
+                                        </div>
                                         <div className="relative bg-white pt-3 pb-2 px-3">
                                             <h3 className="text-xl text-gray-700 group-hover:underline group-hover:underline-offset-4">
                                                 {it.title}
