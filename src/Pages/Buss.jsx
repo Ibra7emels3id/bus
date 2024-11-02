@@ -48,7 +48,7 @@ export default function Buss() {
                             return (
                                 <li key={it._id} className='bg-slate-900 border'>
                                     <Link to="/" className="group block overflow-hidden">
-                                        <div className="img h-[350px]">
+                                        <div className="img h-[350px] flex items-center justify-center">
                                         <img
                                             src={`${import.meta.env.VITE_SOME_URL}/${it.image}`}
                                             alt={it.title}
