@@ -18,7 +18,7 @@ const ProductDetails = () => {
 
     // Fetch the products
     const fetchProducts = async () => {
-        const response = await fetch(`http://localhost:3000/api/product/${id}`);
+        const response = await fetch(`${import.meta.env.VITE_SOME_URL}/api/product/${id}`);
         const data = await response.json();
         setProduct(data);
     }
@@ -27,7 +27,7 @@ const ProductDetails = () => {
     const deleteProduct = async (id) => {
         if (window.confirm('Are you sure you want to delete')) {
             try {
-                await axios.delete(`http://localhost:3000/api/product/delete/${id}`)
+                await axios.delete(`${import.meta.env.VITE_SOME_URL}/api/product/delete/${id}`)
                     .then(() => {
                         toast.warn('successfully Delete product')
                         return Navigate(`/admin/products`);

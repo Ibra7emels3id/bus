@@ -36,7 +36,7 @@ const Products = () => {
     const deleteProduct = async (id) => {
         if (window.confirm('Are you sure you want to delete')) {
             try {
-                axios.delete(`http://localhost:3000/api/product/delete/${id}`)
+                axios.delete(`${import.meta.env.VITE_SOME_URL}/api/product/delete/${id}`)
                 setProducts(products.filter((it) => it._id !== id))
             } catch (error) {
                 console.error('Error deleting product:', error);

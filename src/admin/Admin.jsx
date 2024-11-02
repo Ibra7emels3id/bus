@@ -55,12 +55,12 @@ function Admin() {
             const product = Products.find(it => it.productId);
             const productId = product?.productId;
 
-            const res = await axios.put(`http://localhost:3000/api/product/AddChair/update/${productId}/chair/${id}`, {
+            const res = await axios.put(`${import.meta.env.VITE_SOME_URL}/api/product/AddChair/update/${productId}/chair/${id}`, {
                 chair: 'without'
             });
             console.log("Response Data:", res.data);
 
-            const resbody = await axios.put(`http://localhost:3000/api/UpdateChair/update/${cardID}/chair/${id}`, {
+            const resbody = await axios.put(`${import.meta.env.VITE_SOME_URL}/api/UpdateChair/update/${cardID}/chair/${id}`, {
                 chair: 'without'
             });
 
