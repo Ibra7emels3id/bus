@@ -35,7 +35,7 @@ const ItemCategory = ({ image, title, id, date, time, onDelete }) => {
     const HandleViewChange = async (id) => {
         console.log('View Category', id);
         try {
-            const res = await axios.get(`http://localhost:3000/api/category/${id}`)
+            const res = await axios.get(`${import.meta.env.VITE_SOME_URL}/api/category/${id}`)
             console.log(res.data);
         } catch (error) {
             console.error(error);
@@ -46,7 +46,7 @@ const ItemCategory = ({ image, title, id, date, time, onDelete }) => {
     return (
         <>
             <StyledTableRow className='flex items-center justify-center' key={id}>
-                <StyledTableCell sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}><img className='w-40 flex items-center justify-center' src={`http://localhost:3000/${image}`} alt={title} /></StyledTableCell>
+                <StyledTableCell sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}><img className='w-40 flex items-center justify-center' src={`${import.meta.env.VITE_SOME_URL}/${image}`} alt={title} /></StyledTableCell>
                 <StyledTableCell align="center">{title}</StyledTableCell>
                 <StyledTableCell align="center">{time}<br />{date}</StyledTableCell>
                 <StyledTableCell align="center" ><span onClick={() => {

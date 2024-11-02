@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Link, Navigate, Outlet, useNavigate } from 'react-router-dom'
+import { Navigate} from 'react-router-dom'
 import Header from './_Components/Header'
 import MainNavbar from './_Components/MainNavbar'
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
@@ -15,7 +15,6 @@ function Admin() {
     const [Users, setUsers] = useState([])
     const [allBuss , setAllBuss] = useState([])
 
-    console.log(Products);
     // getDataProducts
     const getDataReservations = async () => {
         try {
@@ -40,7 +39,6 @@ function Admin() {
             }
             toast.success('Delete reservation successfully')
             setloading(false);
-
         } catch (error) {
             console.error(error)
         } finally {
@@ -50,6 +48,7 @@ function Admin() {
 
     // Delete Chair 
     const handleDeleteChair = async (id, cardID) => {
+        console.log(id , cardID);
         try {
             setloading(true);
             const product = Products.find(it => it.productId);
@@ -63,13 +62,11 @@ function Admin() {
             const resbody = await axios.put(`${import.meta.env.VITE_SOME_URL}/api/UpdateChair/update/${cardID}/chair/${id}`, {
                 chair: 'without'
             });
-
             console.log("Response Data:", resbody.data);
 
             toast.success('Delete Chairs successfully')
             getDataReservations();
             setloading(false);
-
         } catch (error) {
             console.error("Error updating chair:", error);
         } finally {
@@ -97,7 +94,6 @@ function Admin() {
         setloading(true);
         try {
             const Res = await axios.get(`${import.meta.env.VITE_SOME_URL}/api/products`);
-            console.log(Res.data);
             setAllBuss(Res.data);
         } catch (error) {
             console.error(error);

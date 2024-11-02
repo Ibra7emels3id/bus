@@ -30,13 +30,13 @@ const UpdateCategory = () => {
     console.log(categoryData);
     // get category data
     const getCategory = async () => {
-        const response = await fetch(`http://localhost:3000/api/category/${id}`);
+        const response = await fetch(`${import.meta.env.VITE_SOME_URL}/api/category/${id}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
         setCategoryData(data);
-        setImage(`http://localhost:3000/${data.image}`);
+        setImage(`${import.meta.env.VITE_SOME_URL}/${data.image}`);
     }
 
 
@@ -52,7 +52,7 @@ const UpdateCategory = () => {
         }
 
         try {
-            const response = await axios.put(`http://localhost:3000/api/category/update/${id}`, formData, {
+            const response = await axios.put(`${import.meta.env.VITE_SOME_URL}/api/category/update/${id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

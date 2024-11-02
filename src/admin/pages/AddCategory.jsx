@@ -40,7 +40,7 @@ const AddCategory = () => {
         console.log(formData);
 
         try {
-            const response = await fetch('http://localhost:3000/api/categories', {
+            const response = await fetch(`${import.meta.env.VITE_SOME_URL}/api/categories`, {
                 method: 'POST',
                 body: formData,
             });

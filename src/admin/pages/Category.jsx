@@ -33,7 +33,7 @@ export default function Category() {
     useEffect(() => {
         const FetchCategory = async () => {
             try {
-                const res = await axios.get('http://localhost:3000/api/categorys')
+                const res = await axios.get(`${import.meta.env.VITE_SOME_URL}/api/categorys`)
                 setCategory(res.data)
             } catch (error) {
                 console.log(error)
@@ -46,7 +46,7 @@ export default function Category() {
     const HandleDeleteChange = async (id) => {
         if (window.confirm('Are you sure you want to delete this category?')) {
             try {
-                await axios.delete(`http://localhost:3000/api/category/delete/${id}`)
+                await axios.delete(`${import.meta.env.VITE_SOME_URL}/api/category/delete/${id}`)
                 console.log('Category deleted successfully');
                 setCategory(category.filter((cat) => cat._id !== id));
                 toast.success(`Category deleted successfully`);

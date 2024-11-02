@@ -611,7 +611,7 @@ function Addproduct() {
         formData.append('date', product.date);
         formData.append('chairAll', chairAll);
 
-        axios.post('http://localhost:3000/api/products', formData, {
+        axios.post(`${import.meta.env.VITE_SOME_URL}/api/products`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
@@ -637,8 +637,7 @@ function Addproduct() {
 
     const FetchCategory = async () => {
         try {
-
-            const res = await axios.get('http://localhost:3000/api/categorys')
+            const res = await axios.get(`${import.meta.env.VITE_SOME_URL}/api/categorys`)
             setCategories(res.data)
         } catch (error) {
             console.log(error)

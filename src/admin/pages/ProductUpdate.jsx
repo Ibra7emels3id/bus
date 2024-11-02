@@ -36,17 +36,17 @@ const ProductUpdate = () => {
 
     // Fetch the products
     const fetchProducts = async () => {
-        const response = await fetch(`http://localhost:3000/api/product/${id}`);
+        const response = await fetch(`${import.meta.env.VITE_SOME_URL}/api/product/${id}`);
         const data = await response.json();
         setProductUpdate(data);
-        setImage(`http://localhost:3000/${data.image}`);
+        setImage(`${import.meta.env.VITE_SOME_URL}/${data.image}`);
     }
 
 
     // Get Category 
     const FetchCategory = async () => {
         try {
-            const res = await axios.get('http://localhost:3000/api/categorys')
+            const res = await axios.get(`${import.meta.env.VITE_SOME_URL}/api/categorys`)
             setCategories(res.data)
         } catch (error) {
             console.log(error)
@@ -72,7 +72,7 @@ const ProductUpdate = () => {
         }
 
         try {
-            axios.put(`http://localhost:3000/api/product/update/${id}`, formData, {
+            axios.put(`${import.meta.env.VITE_SOME_URL}/api/product/update/${id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
