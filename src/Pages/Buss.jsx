@@ -51,7 +51,7 @@ export default function Buss() {
                                         <img
                                             src={`${import.meta.env.VITE_SOME_URL}/${it.image}`}
                                             alt={it.title}
-                                            className="h-[150px]  w-[600px] object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
+                                            className="transition duration-500 group-hover:scale-105"
                                         />
                                         <div className="relative bg-white pt-3 pb-2 px-3">
                                             <h3 className="text-xl text-gray-700 group-hover:underline group-hover:underline-offset-4">
